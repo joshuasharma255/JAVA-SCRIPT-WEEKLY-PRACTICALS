@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ======================
+       Simple single-file portfolio
+       Edit text, images, colors below
+       ====================== */
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#6ee7b7; /* mint */
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --max-width:1100px;
+      --gap:24px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg) 0%, #071024 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--max-width)}
+
+    /* NAV */
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+    .logo{font-weight:700;letter-spacing:0.4px}
+    nav{display:flex;gap:16px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;font-size:14px}
+    nav a:hover{color:var(--accent);background:var(--glass)}
+    .cta{background:linear-gradient(90deg,var(--accent),#4ad3ff);color:#041018;padding:8px 14px;border-radius:12px;font-weight:700}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:var(--gap);align-items:center;margin-bottom:36px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:36px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6);}
+    h1{margin:0;font-size:38px}
+    .subtitle{color:var(--muted);margin-top:10px}
+    .actions{margin-top:22px;display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#4ad3ff);color:#041018;border:0}
+
+    .profile-card{background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:16px;text-align:center}
+    .avatar{width:120px;height:120px;border-radius:16px;display:inline-block;background:linear-gradient(180deg,#0b1220,#081024);margin-bottom:12px}
+    .role{color:var(--muted);font-weight:600}
+
+    /* GRID SECTIONS */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);}
+    .card{background:linear-gradient(180deg,var(--card), #071424);padding:18px;border-radius:12px}
+    .projects{grid-column:span 2}
+
+    .project{display:flex;gap:14px;align-items:flex-start}
+    .thumb{width:120px;height:80px;border-radius:8px;background:linear-gradient(90deg,#123,#246)}
+    .proj-title{font-weight:700}
+    .tags{margin-top:8px;color:var(--muted);font-size:13px}
+
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);padding:8px 12px;border-radius:999px;font-weight:600;color:var(--muted)}
+
+    /* CONTACT */
+    form{display:grid;gap:12px}
+    input, textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:10px;color:inherit;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* RESPONSIVE */
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .projects{grid-column:span 1}
+    }
+    @media (max-width:520px){
+      body{padding:20px}
+      h1{font-size:28px}
+      nav{display:none}
+      .avatar{width:96px;height:96px}
+    }
+
+    /* micro animation */
+    .float{animation:float 6s ease-in-out infinite}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">JOSHUA SHARMA</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Hi — I'm JOSHUA SHARMA</h1>
+        <p class="subtitle">A front-end developer who builds clean, accessible, and delightful web experiences. I love designing UI and turning ideas into production-ready sites.</p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">See projects</a>
+          <a class="btn" href="#contact">Hire me</a>
+        </div>
+
+        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+          <div class="card" style="padding:12px;border-radius:12px;display:inline-block">📧 joshuasharma255@gmail.com</div>
+          <div class="card" style="padding:12px;border-radius:12px;display:inline-block">📍 Halol, India</div>
+        </div>
+      </div>
+
+      <aside class="profile-card float">
+        <div class="avatar" aria-hidden="true"></div>
+        <div style="font-weight:800;font-size:18px">JOSHUA SHARMA</div>
+        <div class="role">Front‑End Developer</div>
+        <p style="color:var(--muted);margin-top:8px">I build responsive websites and simple web apps. Currently available for freelance work.</p>
+      </aside>
+    </section>
+
+    <main class="grid">
+      <section id="projects" class="card projects">
+        <h2 style="margin-top:0">Selected projects</h2>
+
+        <article class="project" style="margin-top:12px">
+          <div class="thumb"></div>
+          <div>
+            <div class="proj-title">Project One</div>
+            <div class="tags">React • Tailwind • Vercel</div>
+            <p style="color:var(--muted);margin-top:8px">A brief sentence describing what the project does and the role you played.</p>
+          </div>
+        </article>
+
+        <article class="project" style="margin-top:16px">
+          <div class="thumb"></div>
+          <div>
+            <div class="proj-title">Project Two</div>
+            <div class="tags">HTML • CSS • Javascript</div>
+            <p style="color:var(--muted);margin-top:8px">Short description. Link to demo or repo when ready.</p>
+          </div>
+        </article>
+
+        <article class="project" style="margin-top:16px">
+          <div class="thumb"></div>
+          <div>
+            <div class="proj-title">Project Three</div>
+            <div class="tags">Design • Figma</div>
+            <p style="color:var(--muted);margin-top:8px">Short description about design and outcomes.</p>
+          </div>
+        </article>
+
+      </section>
+
+      <aside id="skills" class="card">
+        <h3 style="margin-top:0">Skills</h3>
+        <div class="skills" style="margin-top:10px">
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">React</div>
+          <div class="skill">Responsive Design</div>
+          <div class="skill">Accessibility</div>
+          <div class="skill">Figma</div>
+        </div>
+
+        <div style="margin-top:18px">
+          <h4 style="margin:0 0 8px 0">About</h4>
+          <p style="color:var(--muted);margin:0">Short intro about you — education, what you care about, or the type of work you want.</p>
+        </div>
+      </aside>
+
+      <section id="contact" class="card">
+        <h3 style="margin-top:0">Contact</h3>
+        <form onsubmit="event.preventDefault();alert('This is a demo. Replace with real form handler.')" style="margin-top:12px">
+          <input type="text" placeholder="Your name" required />
+          <input type="email" placeholder="Email" required />
+          <textarea placeholder="Message"></textarea>
+          <div style="display:flex;justify-content:flex-end;margin-top:8px">
+            <button class="btn btn-primary" type="submit">Send message</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div>Made with ❤ • © <span id="year"></span> JOSHUA SHARMA</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
